@@ -7,5 +7,5 @@ To use, build the project and run it from the command line, followed by a list o
 Eg. try this out:
 
 ```cmd
-ConfigureAwaitAdder> Source\bin\Debug\net472\ConfigureAwaitAdder.exe Source\ConfigureAwaitAdder.csproj
+ConfigureAwaitAdder> Source\bin\Release\net472\ConfigureAwaitAdder.exe Source\ConfigureAwaitAdder.csproj
 ```
