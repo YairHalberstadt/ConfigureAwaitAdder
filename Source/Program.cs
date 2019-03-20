@@ -21,22 +21,6 @@ namespace FixieToNunitConverter
 			}
 		}
 
-		public static async Task FormatProject(Project project, Workspace workspace)
-		{
-			var compilation = await project.GetCompilationAsync();
-			foreach (var syntaxTree in compilation.SyntaxTrees)
-			{
-				var compilationUnitSyntax = syntaxTree.GetCompilationUnitRoot();
-				if (compilationUnitSyntax.Usings.Any(x => ((dynamic) x).Name.ToString().Contains("NUnit.Framework")))
-				{
-					var newSyntaxTree = Formatter.Format(compilationUnitSyntax, workspace, workspace.Options.WithChangedOption(FormattingOptions.UseTabs, "C#", true));
-					File.WriteAllText(syntaxTree.FilePath, newSyntaxTree.GetText().ToString());
-				}
-					
-
-			}
-		}
-
 		public static async Task RunOnProject(string projectPath)
 		{
 			try
@@ -52,15 +36,6 @@ namespace FixieToNunitConverter
 					}
 
 					await FixProject(project);
-
-					//project = await workspace.OpenProjectAsync(projectPath);
-					//diagnostics = workspace.Diagnostics;
-					//foreach (var diagnostic in diagnostics)
-					//{
-					//	Console.WriteLine(diagnostic.Message);
-					//}
-
-					//await FormatProject(project, workspace);
 				}
 
 			}
