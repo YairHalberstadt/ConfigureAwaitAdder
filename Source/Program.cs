@@ -9,7 +9,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis.Formatting;
 
-namespace FixieToNunitConverter
+namespace ConfigureAwaitAdder
 {
     class Program
     {
